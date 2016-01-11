@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studentMgmtApp">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>
+        <%=student.firstName%>&nbsp;<%=student.lastName%>
+    </title>
+    <meta name="generator" content="Bootply" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body ng-controller="mainController">
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand"><i class="fa fa-home fa-2x"></i></a>
+            </div>
+            <nav class="collapse navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav">
+                    <%for(var i=0; i < nav.length; i++) {%>
+                        <li>
+                            <a href="<%=nav[i].link%>">
+                                <%=nav[i].text%>
+                            </a>
+                        </li>
+                        <%}%>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="input-group input-group-md">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li style="color : black"><a href="#">Welcome, <%=user%></a></li>
+                    <li>
+                        <button class="btn btn-primary" type="button" id="signOutBtn">Sign Out !</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="masthead">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>MyCollege
+          <p class="lead"></p>
+        </h1>
+                </div>
+                <!---->
+            </div>
+        </div>
+        <!-- /cont -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-spacer"> </div>
+                </div>
+            </div>
+        </div>
+        <!-- /cont -->
+
+    </div>
+
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <div class="panel">
+                    <div class="panel-body">
+
+
+
+                        <!--/student-->
+                        <div class="row">
+                            <br>
+                            <div class="col-md-2 col-sm-3 text-center">
+                                <a class="story-title" href="#"><img alt="" src="http://api.randomuser.me/portraits/thumb/men/58.jpg" style="width:100px;height:100px" class="img-circle"></a>
+                            </div>
+                            <div class="col-md-10 col-sm-9">
+                                <h3>Full Name : <%=student.firstName%>&nbsp;<%=student.lastName%></h3>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h4><span>Age : <%=student.age%></span></h4>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <h4><span>Gender : <%=student.gender%></span></h4>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <h4><span>Contact No : <%=student.contactNo%></span></h4>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <h4><span>Course : <%=student.course%></span></h4>
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                            </div>
+                            <div class="col-md-offset-2 col-md-6 col-md-offset-4 col-sm-offset-3 col-sm-6 col-sm-offset-3">
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#updateStudentModal">Update</button>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteStudentModal">Delete</button>
+                            </div>
+                        </div>
+                        <!--/student-->
+                        <!-- Update Student Modal -->
+                        <div class="modal fade" id="updateStudentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Update Student Info</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/students/update/<%=student._id%>" method="post">
+                                            <div class="form-group">
+                                                <label for="firstName">First Name</label>
+                                                <input type="text" class="form-control" id="firstName" name="firstName" value="<%=student.firstName%>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="lastName">Last Name</label>
+                                                <input type="text" class="form-control" id="lastName" name="lastName" value="<%=student.lastName%>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="age">Age</label>
+                                                <input type="text" class="form-control" id="age" name="age" value="<%=student.age%>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="gender">Gender</label>
+                                                <input type="text" class="form-control" id="gender" name="gender" value="<%=student.gender%>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="contactNo">Contact No</label>
+                                                <input type="text" class="form-control" id="contactNo" name="contactNo" value="<%=student.contactNo%>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="course">Course</label>
+                                                <input type="text" class="form-control" id="course" name="course" value="<%=student.course%>">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="submit" id="updateStudentBtn" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Delete Student Modal -->
+                        <div class="modal fade" id="deleteStudentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Delete Student</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="lead">Do you want to delete student -  <%=student.firstName%>&nbsp;<%=student.lastName%>?</span>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        <button type="button" id="deleteStudentBtn" class="btn btn-danger" ng-click="deleteBtn(<%=JSON.stringify(student._id)%>)">Delete</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <!--/col-12-->
+        </div>
+    </div>
+
+
+    <hr>
+
+    <div class="container" id="footer">
+        <div class="row">
+            <div class="col col-sm-12">
+
+                <h1>Follow Us</h1>
+                <div class="btn-group">
+                    <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+                    <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+                    <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <hr>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-inline">
+                        <li><i class="icon-facebook icon-2x"></i></li>
+                        <li><i class="icon-twitter icon-2x"></i></li>
+                        <li><i class="icon-google-plus icon-2x"></i></li>
+                        <li><i class="icon-pinterest icon-2x"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- script references -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="//code.angularjs.org/1.4.7/angular.min.js"></script>
+    <script src="/js/angularApp.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- My scripts -->
+    <script>
+        $('#updateStudentBtn').click(function () {
+            $('#updateStudentModal').modal('hide');
+        });
+        $('#deleteStudentBtn').click(function () {
+            $('#deleteStudentModal').modal('hide');
+        });
+        $('#signOutBtn').click(function () {
+             window.location.href='/auth/logout';
+        });
+    </script>
+</body>
+
+</html>

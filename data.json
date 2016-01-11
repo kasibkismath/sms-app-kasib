@@ -1,0 +1,111 @@
+[
+    {
+        "firstName": "Kasib",
+        "lastName": "Kismath",
+        "age": 20,
+        "gender": "male",
+        "course": "Information Technology",
+        "contactNo": "01121234567"
+	},
+    {
+        "firstName": "Muhammad",
+        "lastName": "Muhsin",
+        "age": 21,
+        "gender": "male",
+        "course": "Software Engineering",
+        "contactNo": "01121234567"
+	},
+    {
+        "firstName": "Hisham",
+        "lastName": "Haniffa",
+        "age": 21,
+        "gender": "male",
+        "course": "Software Engineering",
+        "contactNo": "01121234567"
+	},
+    {
+        "firstName": "Humaiz",
+        "lastName": "Azad",
+        "age": 20,
+        "gender": "male",
+        "course": "Computer Networks",
+        "contactNo": "01121234567"
+	},
+    {
+        "firstName": "Abdul Aziz",
+        "lastName": "Ismail",
+        "age": 21,
+        "gender": "male",
+        "course": "Management",
+        "contactNo": "01121234567"
+	},
+    {
+        "firstName": "Fazlyn",
+        "lastName": "Cader",
+        "age": 21,
+        "gender": "male",
+        "course": "Information Technology",
+        "contactNo": "01121234567"
+	},
+    {
+        "firstName": "Anna",
+        "lastName": "Warwick",
+        "age": 21,
+        "gender": "female",
+        "course": "Physiology",
+        "contactNo": "01121234567"
+	},
+    {
+        "firstName": "Dilrukshi",
+        "lastName": "Jayawardene",
+        "age": 24,
+        "gender": "female",
+        "course": "Finance",
+        "contactNo": "01121234567"
+	}
+], 
+
+[
+    {
+        "courseName": "Software Engineering",
+        "credits": 650,
+        "years": 3,
+        "department": "Engineering",
+        "coordinator": "Mr. Nishan Alex"
+    },
+    {
+        "courseName": "Information Technology",
+        "credits": 600,
+        "years": 3,
+        "department": "Computing and IT",
+        "coordinator": "Mrs. Queens Berry"
+    },
+    {
+        "courseName": "Computer Networks",
+        "credits": 650,
+        "years": 3,
+        "department": "Computing and IT",
+        "coordinator": "Mr. A.C. Milan"
+    },
+    {
+        "courseName": "Management",
+        "credits": 550,
+        "years": 3,
+        "department": "Mangement and Finance",
+        "coordinator": "Mrs. Lila Weeratunga"
+    },
+    {
+        "courseName": "Finance",
+        "credits": 550,
+        "years": 3,
+        "department": "Mangement and Finance",
+        "coordinator": "Mrs. Lila Weeratunga"
+    },
+    {
+        "courseName": "Physiology",
+        "credits": 550,
+        "years": 3,
+        "department" : "Medicine and Physiology",
+        "coordinator": "Ms. Laura David"
+    }
+]
