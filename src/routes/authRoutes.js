@@ -6,17 +6,20 @@ var passport = require('passport');
 var routes = function () {
     authRouter.route('/signUp')
         .post(function (req, res) {
-            console.log(req.body);
-            var newUser = new User({
-                username: req.body.username,
-                password: req.body.password
-            });
-            newUser.save(function (err, user) {
-                if (err) return console.error(err);
-                req.login(user, function () {
-                    res.redirect('/students');
+            if (req.body.username === "" || req.body.password === "") {
+                res.redirect('/');
+            } else {
+                var newUser = new User({
+                    username: req.body.username,
+                    password: req.body.password
                 });
-            });
+                newUser.save(function (err, user) {
+                    if (err) return console.error(err);
+                    req.login(user, function () {
+                        res.redirect('/students');
+                    });
+                });
+            }
         });
     authRouter.route('/signIn')
         .post(passport.authenticate('local', {
@@ -30,7 +33,7 @@ var routes = function () {
             req.logout();
             res.redirect('/');
         });
-    
+
     return authRouter;
 };
 
